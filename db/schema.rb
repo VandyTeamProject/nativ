@@ -18,12 +18,9 @@ ActiveRecord::Schema.define(version: 2019_09_10_060209) do
   create_table "comments", force: :cascade do |t|
     t.text "message"
     t.string "rating"
-    t.integer "user_id"
     t.integer "place_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["place_id"], name: "index_comments_on_place_id"
-    t.index ["user_id", "place_id"], name: "index_comments_on_user_id_and_place_id"
   end
 
   create_table "commments", force: :cascade do |t|
@@ -35,11 +32,9 @@ ActiveRecord::Schema.define(version: 2019_09_10_060209) do
     t.string "name"
     t.string "address"
     t.integer "phone_number"
-    t.integer "user_id"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_places_on_user_id"
   end
 
 end
