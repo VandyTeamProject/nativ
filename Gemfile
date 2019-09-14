@@ -62,4 +62,13 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
+<<<<<<< HEAD
 gem 'simple_form'
+=======
+#Rubocop - linter and code formatter
+gem 'rubocop', '~> 0.74.0', require: false
+
+
+gem 'simple_form'
+
+>>>>>>> 4cd2df911c9a07763af3d8079200181303624769

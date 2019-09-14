@@ -1,1 +1,22 @@
+<<<<<<< HEAD
 <h1>Home</h1>
+=======
+
+<h1>Home</h1>
+<%= @places.each do |place| %>
+  <div> 
+    <h1><%= place.name %></h1>
+    <i><%= place.address %></i>
+    <br />
+    <p><%= place.phone_number %></p>
+    <p><%= place.description %></p> 
+  </div>
+  <br />
+  <hr />
+
+<% end %>    
+  
+
+
+
+>>>>>>> 4cd2df911c9a07763af3d8079200181303624769
