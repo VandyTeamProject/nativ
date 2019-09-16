@@ -74,3 +74,9 @@ end
 
 # User authentication 
 gem 'devise'
+
+#Rubocop - linter and code formatter
+gem 'rubocop', '~> 0.74.0', require: false
+
+
+gem 'simple_form'
