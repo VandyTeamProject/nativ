@@ -1,6 +1,8 @@
 class PlacesController < ApplicationController
+
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   
+
     def index
       @places = Place.all
     end
@@ -11,12 +13,13 @@ class PlacesController < ApplicationController
   
     def create
       @places = current_user.places.create(place_params)
-    if @place.valid?
-      redirect_to root_path
-    else
-      render :new, status: :unprocessable_entity
+       if @place.valid?
+        redirect_to root_path
+       else
+        render :new, status: :unprocessable_entity
     end
-    end
+
+  
   
     def show
       @place = Place.find(params[:id])
