@@ -77,8 +77,7 @@ gem 'devise'
 
 #Rubocop - linter and code formatter
 gem 'rubocop', '~> 0.74.0', require: false
-
-gem "font-awesome-rails"
+"
 gem 'simple_form'
 gem "figaro"
 gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
@@ -88,3 +87,13 @@ gem "geocoder"
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
+# font awesome gem
+gem "font-awesome-rails"
+
+# pagination
+gem 'will_paginate', '> 3.0.7'
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
+
+gem 'geocoder'
+
+gem "fog-aws"
