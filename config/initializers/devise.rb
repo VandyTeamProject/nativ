@@ -262,6 +262,15 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
 
+  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'],
+  {
+         scope: 'userinfo.email, userinfo.profile, http://gdata.youtube.com',
+         prompt: 'select_account',
+         image_aspect_ratio: 'square',
+         image_size: 50,
+         skip_jwt: true
+       }
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
