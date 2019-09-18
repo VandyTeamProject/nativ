@@ -12,11 +12,7 @@
 
 
 
-
-
 ActiveRecord::Schema.define(version: 2019_09_18_023054) do
-
-
 
 
 
