@@ -82,3 +82,4 @@ gem 'rubocop', '~> 0.74.0', require: false
 gem 'simple_form'
 gem 'figaro'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
