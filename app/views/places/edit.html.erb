@@ -1,0 +1,25 @@
+<<<<<<< HEAD
+<h1>Add a Nativ hotspot!</h1>
+<div class="booyah-box col-10 offset-1">
+    <%= simple_form_for @place do |f| %>
+    <br />
+    <br />
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :address %>
+    <br />
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+  <% end %>
+  </div>
+=======
+<div class="booyah-box">
+  <h1>Edit Your Place</h1>
+  <%= simple_form_for @place do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <br />
+    <%= f.submit 'Update', class: 'btn btn-primary' %>
+  <% end %>
+</div>
+>>>>>>> initial copy of nomster to start editing

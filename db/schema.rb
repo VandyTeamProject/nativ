@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_09_17_182033) do
+
+
+
+ActiveRecord::Schema.define(version: 2019_09_18_023054) do
+
+
+
+ActiveRecord::Schema.define(version: 2019_09_17_221327) do
+
+ActiveRecord::Schema.define(version: 2019_09_18_023054) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "message"
@@ -23,6 +42,17 @@ ActiveRecord::Schema.define(version: 2019_09_17_182033) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.string "photo"
+    t.string "caption"
+    t.string "user_id"
+    t.string "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_photos_on_place_id"
+    t.index ["user_id", "place_id"], name: "index_photos_on_user_id_and_place_id"
+  end
+
   create_table "places", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -30,6 +60,8 @@ ActiveRecord::Schema.define(version: 2019_09_17_182033) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,5 +79,21 @@ ActiveRecord::Schema.define(version: 2019_09_17_182033) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid"], name: "index_users_on_uid"
   end
+
+end
+
+create_table "users", force: :cascade do |t|
+  t.string "email", default: "", null: false
+  t.string "encrypted_password", default: "", null: false
+  t.string "reset_password_token"
+  t.datetime "reset_password_sent_at"
+  t.datetime "remember_created_at"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+  t.index ["email"], name: "index_users_on_email", unique: true
+  t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  t.integer "user_id"
+  t.index ["user_id"], name: "index_places_on_user_id"
+end
 
 end

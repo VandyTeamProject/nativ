@@ -1,13 +1,12 @@
-<h1>Find a Nativ</h1>
+<h1>Add a Nativ hotspot!</h1>
+<div class="booyah-box col-10 offset-1">
     <%= simple_form_for @place do |f| %>
     <br />
     <br />
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :address %>
-    <%= f.input :phone %>
-    <%= f.input :hours %>
-    <%= f.input_field :radio_buttons, as: :boolean, boolean_style: :inline %>
     <br />
     <%= f.submit 'Submit', class: 'btn btn-primary' %>
   <% end %>
+  </div>

@@ -1,0 +1,44 @@
+<div class="booyah-box">
+  <div class="row">
+    <div class="col-4">
+      <%= image_tag ' ' %>
+    </div>
+
+    <div class="col-8">
+      <h1><%= @user.email %></h1>
+      <h3>Member Since: <%= @user.created_at.strftime("%B %d, %Y") %></h3>
+  </div>
+  <div class="clear"></div>
+</div>
+<br /><br />
+<h1 class="text-center">My Comments</h1>
+<br /><br />
+<div class="row">
+<div class="clear"></div>
+<br /><br />
+<h2 class="text-center">My Places</h2>
+<br /><br />
+
+<% @user.places.each do |place| %>
+  <div class="booyah-box col-10 offset-1">
+    <h1><%= link_to place.name, place_path(place) %></h1><br />
+    <i><%= place.address %></i><br /><br />
+    <p><%= place.description %></p><br />
+
+    <% if place.user.present? %>
+      <small><%= place.user.email %></small>
+    <% end %>
+
+    <% if place.comments.present? %>
+      <div class="col-12">
+        <blockquote>
+          <% if place.comments.last.humanized_rating.present? %>
+            <b><%= place.comments.last.humanized_rating %></b> -
+          <% end %>
+          <%= place.comments.last.message %>
+          <small><%= place.comments.last.user.email %></small>
+        </blockquote>
+      </div>
+    <% end %>
+  </div>
+<% end %>
