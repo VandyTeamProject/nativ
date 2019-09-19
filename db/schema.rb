@@ -15,6 +15,12 @@ ActiveRecord::Schema.define(version: 2019_09_18_030438) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.text "message"
     t.string "rating"
@@ -41,8 +47,10 @@ ActiveRecord::Schema.define(version: 2019_09_18_030438) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.float "latitude"
     t.float "longitude"
+    t.index ["user_id"], name: "index_places_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,8 +61,12 @@ ActiveRecord::Schema.define(version: 2019_09_18_030438) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["provider"], name: "index_users_on_provider"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["uid"], name: "index_users_on_uid"
   end
 
 end
