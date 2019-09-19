@@ -6,20 +6,22 @@ class PlacesController < ApplicationController
     end
   
     def new
-      @places = Place.new
+      @place = Place.new
     end
   
     def create
-      @places = current_user.places.create(place_params)
+      @place = current_user.places.create(place_params)
     if @place.valid?
-      redirect_to root_path
+        flash[:success] = "Your place has been added!"
+        redirect_to root_path
     else
-      render :new, status: :unprocessable_entity
+        flash[:alert] = "Your new place couldn't be created!  Please check the form."
+        render :new, status: :unprocessable_entity
     end
     end
   
     def show
-      @place = Place.find(params[:id])
+      @places = Place.find(params[:id])
       @comment = Comment.new
       @photo = Photo.new
     end
