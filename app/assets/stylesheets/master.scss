@@ -29,8 +29,8 @@ body {
 
 
 .navbar {
-  background: #008080;
-  box-shadow: 0px 1px 3px #008080;
+  background: #37474f;
+  box-shadow: 0px 1px 3px #37474f;
   margin-bottom: 0;
 }
 
@@ -70,21 +70,4 @@ blockquote:before {
 
 blockquote p {
   display: inline;
-}
-
-
-.carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
-  max-height: 600px;
-  width: 100%;
-}
-
-.img-fluid {
-  max-width: 100%; 
-  height: auto;
-}
-
-
-.carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
-  max-height: 600px;
-  width: 100%;
 }
