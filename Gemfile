@@ -81,7 +81,6 @@ gem 'rubocop', '~> 0.74.0', require: false
 gem 'simple_form'
 gem 'figaro'
 gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
-gem 'geocoder'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'carrierwave-aws'
