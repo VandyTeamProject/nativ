@@ -6,3 +6,10 @@
   <p><%= @place.description %></p>
 
 </div>
+
+
+<%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
+  <%= f.input :message %>
+  <%= f.input :rating %>
+  <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
+<% end %>
