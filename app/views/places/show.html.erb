@@ -14,6 +14,35 @@
   <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
 <% end %>
 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Add a Comment
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Add a comment</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
+          <%= f.input :message %>
+          <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
+        <% end %>
+    </div>
+  </div>
+</div>
+
 <% @place.comments.each do |comment| %>
   <div>
     <blockquote>
