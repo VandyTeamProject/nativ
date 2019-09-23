@@ -4,12 +4,14 @@
     <title>Nativ</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <div id="flex-content-container">
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -52,5 +54,29 @@
     <% end %>
 
     <%= yield %>
+    </div>
+
+    <div id="footer">
+    <br/>
+      <div class="container">
+      <div class="row">
+      <div class="col-12 col-sm-3">
+        <b>About</b>
+        <br />
+        <%= link_to 'Team', '#' %>
+        <br />
+        <%= link_to 'Careers', '#' %>
+        <br />
+        <%= link_to 'Privacy Policy', '#' %>
+      </div>
+      <div class="col-12 col-sm-3">
+        <b>Contact</b>
+        <br />
+        email
+        <br />
+        One City Square
+        <br />
+        Nashville, TN 37201
+      </div>
   </body>
 </html>

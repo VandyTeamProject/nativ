@@ -33,7 +33,6 @@
   </a>
 </div>
 
-
  
 <% @places.each do |place| %>
   <div class="booyah-box col-10 offset-1">
@@ -44,8 +43,10 @@
     <% if place.user.present? %>
       <small><%= place.user.email %></small>
     <% end %>
+    
 
   </div>
 <% end %>
+<br/><br/>
 
 
