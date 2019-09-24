@@ -8,6 +8,8 @@ FactoryBot.define do
   end
   factory :place do
     name { "hello" }
+    address { "hello" }
+    description { "hello" }
     association :user
   end
   

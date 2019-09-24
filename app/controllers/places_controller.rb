@@ -22,13 +22,12 @@ class PlacesController < ApplicationController
   
     def show
       @place = Place.find_by_id(params[:id])
-        if @place.blank?
-        render plain: 'Not Found :(', status: :not_found
+        return render_not_found if @place.blank?
         end
     end
   
     def edit
-      @place = Place.find(params[:id])
+      @place = Place.find_by_id(params[:id])
   
       if @place.user != current_user
         return render plain: 'Not Allowed', status: :forbidden
@@ -65,4 +64,10 @@ class PlacesController < ApplicationController
     def place_params
       params.require(:place).permit(:name, :description, :address)
     end
+
+    def render_not_found
+    render plain: 'Not Found :(', status: :not_found
+    end
+  
   end
+  
