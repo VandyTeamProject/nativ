@@ -21,20 +21,24 @@ class PlacesController < ApplicationController
     end
   
     def show
-      @place = Place.find(params[:id])
+      @place = Place.find_by_id(params[:id])
+        return render_not_found if @place.blank?
     end
   
     def edit
-      @place = Place.find(params[:id])
-  
-      if @place.user != current_user
+      @place = Place.find_by_id(params[:id])
+      return render_not_found if @place.blank?
+      return render_forbidden if @place.user != current_user
+      if @place.user != current_user 
         return render plain: 'Not Allowed', status: :forbidden
       end
     end
   
     
     def update
-      @place = Place.find(params[:id])
+      @place = Place.find_by_id(params[:id])
+      return render_not_found if @place.blank?
+      return render_forbidden if @place.user != current_user
       if @place.user != current_user
       return render plain: 'Not Allowed', status: :forbidden
     end
@@ -48,7 +52,9 @@ class PlacesController < ApplicationController
     end
   
     def destroy
-      @place = Place.find(params[:id])
+      @place = Place.find_by_id(params[:id])
+      return render_not_found if @place.blank?
+      return render_forbidden if @place.user != current_user
       if @place.user != current_user
       return render plain: 'Not Allowed', status: :forbidden
     end
@@ -61,5 +67,13 @@ class PlacesController < ApplicationController
   
     def place_params
       params.require(:place).permit(:name, :description, :address)
+    end
+
+    def render_not_found
+    render plain: 'Not Found :(', status: :not_found
+    end
+
+    def render_forbidden
+    render plain: 'Forbidden', status: :forbidden
     end
   end
