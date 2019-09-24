@@ -29,7 +29,7 @@ RSpec.describe PlacesController, type: :controller do
   end
 
    #create
-  describe "grams#create action" do
+  describe "places#create action" do
     
     it "should require users to be logged in" do
       post :create, params: { place: { name: "Hello" } }
@@ -65,7 +65,7 @@ RSpec.describe PlacesController, type: :controller do
   end
 
   #edit
-  describe "grams#edit action" do
+  describe "places#edit action" do
     it "shouldn't let a user who did not create the place edit a place" do
       place = FactoryBot.create(:place)
       user = FactoryBot.create(:user)
@@ -142,7 +142,7 @@ describe "places#destroy action" do
 
 
    #update
-  describe "place#update action" do
+  describe "places#update action" do
     it "shouldn't let users who didn't create the place update it" do
     place = FactoryBot.create(:place)
     user = FactoryBot.create(:user)
