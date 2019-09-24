@@ -23,14 +23,13 @@ class PlacesController < ApplicationController
     def show
       @place = Place.find_by_id(params[:id])
         return render_not_found if @place.blank?
-        end
     end
   
     def edit
       @place = Place.find_by_id(params[:id])
   
-      if @place.user != current_user
-        return render plain: 'Not Allowed', status: :forbidden
+      if @place.user != current_user || @place.blank?
+        return render_not_found
       end
     end
   
@@ -70,4 +69,3 @@ class PlacesController < ApplicationController
     end
   
   end
-  

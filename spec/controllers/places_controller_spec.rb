@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe PlacesController, type: :controller do
+  
+  #index 
   describe "places#index action" do
     it "should successfully show the page" do
       get :index
@@ -9,7 +11,7 @@ RSpec.describe PlacesController, type: :controller do
     end
   end
 
-
+  #new
   describe "places#new action" do
 
     it "should require users to be logged in" do
@@ -26,6 +28,7 @@ RSpec.describe PlacesController, type: :controller do
     end
   end
 
+   #create
   describe "grams#create action" do
     
     it "should require users to be logged in" do
@@ -61,6 +64,7 @@ RSpec.describe PlacesController, type: :controller do
       end
   end
 
+  #edit
   describe "grams#edit action" do
     it "shouldn't let a user who did not create the place edit a place" do
       place = FactoryBot.create(:place)
@@ -94,14 +98,7 @@ RSpec.describe PlacesController, type: :controller do
   end
 
 
-
-
-
-
-
-
-
-
+   #show
   describe "places#show action" do
     it "should successfully show the page if the place is found" do
       place = FactoryBot.create(:place)
