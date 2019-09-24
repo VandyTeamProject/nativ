@@ -21,7 +21,10 @@ class PlacesController < ApplicationController
     end
   
     def show
-      @place = Place.find(params[:id])
+      @place = Place.find_by_id(params[:id])
+        if @place.blank?
+        render plain: 'Not Found :(', status: :not_found
+        end
     end
   
     def edit

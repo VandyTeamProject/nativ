@@ -59,9 +59,21 @@ RSpec.describe PlacesController, type: :controller do
       expect(response).to have_http_status(:unprocessable_entity)
       expect(Place.count).to eq 0
       end
+  end
 
 
+  describe "places#show action" do
+    it "should successfully show the page if the place is found" do
+      place = FactoryBot.create(:place)
+      get :show, params: { id: place.id }
+      expect(response).to have_http_status(:success)
+    end
 
+    it "should return a 404 error if the place is not found" do
+      get :show, params: { id: 'TACOCAT' }
+      expect(response).to have_http_status(:not_found)
+
+    end
   end
 
 end

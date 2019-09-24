@@ -6,5 +6,9 @@ FactoryBot.define do
     password { "secretPassword" }
     password_confirmation { "secretPassword" }
   end
+  factory :place do
+    name { "hello" }
+    association :user
+  end
   
 end
