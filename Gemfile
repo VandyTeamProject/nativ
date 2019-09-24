@@ -98,3 +98,8 @@ gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
 
 gem "fog-aws"
 
+#Rspec
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
+
