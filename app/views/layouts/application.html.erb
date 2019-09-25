@@ -4,7 +4,8 @@
     <title>Nativ</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
  
   </head>
@@ -58,5 +59,29 @@
     <% end %>
 
     <%= yield %>
+    </div>
+
+    <div id="footer">
+    <br/>
+      <div class="container">
+      <div class="row">
+      <div class="col-12 col-sm-3">
+        <b>About</b>
+        <br />
+        <%= link_to 'Team', '#' %>
+        <br />
+        <%= link_to 'Careers', '#' %>
+        <br />
+        <%= link_to 'Privacy Policy', '#' %>
+      </div>
+      <div class="col-12 col-sm-3">
+        <b>Contact</b>
+        <br />
+        email
+        <br />
+        One City Square
+        <br />
+        Nashville, TN 37201
+      </div>
   </body>
 </html>
