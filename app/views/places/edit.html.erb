@@ -1,4 +1,4 @@
-<h1>Add a Nativ hotspot!</h1>
+<h1>Edit Your Nativ Hotspot!</h1>
 <br />
 <br />
 <div class="booyah-box col-10 offset-1">
@@ -8,7 +8,9 @@
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :address %>
-    <br />
+    <%= f.input :phone_number %>
+    <%= f.file_field :image %>
+    <br /><br />
     <%= f.submit 'Update', class: 'btn btn-primary' %>
   <% end %>
   </div>

@@ -21,8 +21,9 @@ class PlacesController < ApplicationController
     end
   
     def show
+      @comment = Comment.new
       @place = Place.find_by_id(params[:id])
-        return render_not_found if @place.blank?
+      return render_not_found if @place.blank?
     end
   
     def edit
@@ -40,12 +41,12 @@ class PlacesController < ApplicationController
       return render_not_found if @place.blank?
       return render_forbidden if @place.user != current_user
       if @place.user != current_user
-      return render plain: 'Not Allowed', status: :forbidden
-    end
+        return render plain: 'Not Allowed', status: :forbidden
+      end
   
       @place.update_attributes(place_params)
       if @place.valid?
-      redirect_to root_path
+        redirect_to root_path
       else
         render :edit, status: :unprocessable_entity
       end
@@ -56,8 +57,8 @@ class PlacesController < ApplicationController
       return render_not_found if @place.blank?
       return render_forbidden if @place.user != current_user
       if @place.user != current_user
-      return render plain: 'Not Allowed', status: :forbidden
-    end
+        return render plain: 'Not Allowed', status: :forbidden
+      end
   
       @place.destroy
       redirect_to root_path
@@ -66,7 +67,7 @@ class PlacesController < ApplicationController
     private
   
     def place_params
-      params.require(:place).permit(:name, :description, :address)
+      params.require(:place).permit(:name, :description, :address, :phone_number, :image)
     end
 
     def render_not_found
