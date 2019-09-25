@@ -27,6 +27,11 @@ body {
   margin-bottom: 0;
 }
 
+a {
+  color: #ffc4bb;
+  text-decoration: none;
+  background-color: transparent;
+}
 
 .invalid-feedback {
   color: #ff3333;
@@ -173,3 +178,4 @@ img.photo-place {
 .will_paginate .next_page {
     margin-left: 1em; 
 }
+
