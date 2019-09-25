@@ -21,8 +21,9 @@ class PlacesController < ApplicationController
     end
   
     def show
+      @comment = Comment.new
       @place = Place.find_by_id(params[:id])
-        return render_not_found if @place.blank?
+      return render_not_found if @place.blank?
     end
   
     def edit
