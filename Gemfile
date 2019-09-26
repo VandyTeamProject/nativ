@@ -59,7 +59,7 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Bootstrap for front-end framework
 gem 'bootstrap', '~> 4.3.1'
@@ -85,10 +85,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'carrierwave-aws'
 
-source 'https://rails-assets.org' do
-  gem 'rails-assets-tether', '>= 1.3.3'
-end
-
 # font awesome gem
 gem 'font-awesome-rails'
 
@@ -103,4 +99,5 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem "factory_bot_rails"
 end
-
+# cities (MAxMind database)
+gem 'cities', '~> 0.3.1'
