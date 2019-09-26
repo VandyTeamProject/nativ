@@ -85,17 +85,12 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'carrierwave-aws'
 
-source 'https://rails-assets.org' do
-  gem 'rails-assets-tether', '>= 1.3.3'
-end
-
 # font awesome gem
 gem 'font-awesome-rails'
 
 # pagination
 gem 'will_paginate', '> 3.0.7'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
-
 gem "fog-aws"
 
 #Rspec
