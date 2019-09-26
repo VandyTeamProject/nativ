@@ -1,4 +1,7 @@
 FactoryBot.define do
+  factory :comment do 
+  end
+
   factory :user do
     sequence :email do |n|
        "dummyEmail#{n}@gmail.com" 
@@ -12,5 +15,8 @@ FactoryBot.define do
     description { "hello" }
     association :user
   end
+
+  
+  
   
 end
