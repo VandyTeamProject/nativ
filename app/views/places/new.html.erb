@@ -9,7 +9,9 @@
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :address %>
-    <br />
+    <%= f.input :phone_number %>
+    <%= f.file_field :image %>
+    <br /><br>
     <%= f.submit 'Submit', class: 'btn btn-primary' %>
   <% end %>
   </div>
