@@ -1,7 +1,7 @@
 <div class="booyah-box col-10 offset-1">
   <br />
-  <h1><%=  @place.name %></h1><br />
-  <i><%= @place.address %></i><br />
+  <h1><%= @place.name %></h1><br />
+  <p><%= @place.address %></p>
   <p><%= @place.phone_number %></p>
   <br/><br/>
   <p><%= @place.description %></p>
@@ -39,10 +39,9 @@
   </div>
 </div>
 
-  <br/><br/>
 
-
-
+<br/>
+<br/>
 <div class="col-10 offset-1">
 <h1 class="float-left">Comments</h1>
 <!-- Button trigger modal -->
@@ -56,7 +55,7 @@
 
 <div class="row">
 <% @place.comments.each do |comment| %>
-  <div class="col-12 col-sm-6">
+  <div class="booyah-box col-12 col-sm-8 offset-2">
     <blockquote>
       <% if comment.humanized_rating.present? %>
         <b><%= comment.humanized_rating %></b> -

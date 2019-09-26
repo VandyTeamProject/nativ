@@ -46,8 +46,10 @@ class PlacesController < ApplicationController
   
       @place.update_attributes(place_params)
       if @place.valid?
+        flash[:success] = "Your place has been updated!"
         redirect_to root_path
       else
+        flash[:alert] = "Your new place couldn't be updated!  Please check the form."
         render :edit, status: :unprocessable_entity
       end
     end

@@ -74,11 +74,17 @@ blockquote p {
 .carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
   height: auto;
   max-width: 100%;
+  object-fit: cover;
 }
 
 .img-fluid {
   max-width: 100%; 
   height: 500px;
+}
+
+.img-thumbnail {
+  max-width: 200px; 
+  height: 200px;
 }
 
 @-ms-viewport{
