@@ -33,19 +33,33 @@
   </a>
 </div>
 
-
  
 <% @places.each do |place| %>
   <div class="booyah-box col-10 offset-1">
-    <h1><%= place.name %></h1><br />
-    <i><%= place.address %></i><br /><br />
+    <h5><%= link_to place.name, place_path(place) %></h5><br />
+    <img src="http://via.placeholder.com/200" class="image-thumbnail"/>
+    <br /><br />
+    <p><%= place.address %></p>
+    <p><%= place.phone_number %></p><br />
     <p><%= place.description %></p><br />
-    <p><%= place.phone_number %></p>
     <% if place.user.present? %>
       <small><%= place.user.email %></small>
     <% end %>
+    
 
+  <% if place.comments.present? %>
+      <div class="col-12 col-sm-6">
+        <blockquote>
+        <% if place.comments.last.humanized_rating.present? %>
+        <b><%= place.comments.last.humanized_rating %></b> -
+        <% end %>
+        <%= place.comments.last.message %>
+        <!-- <small><%= place.comments.last.user.email %></small>  -->
+        </blockquote>
+      </div>
+    <% end %>
   </div>
 <% end %>
+<br />
 
 

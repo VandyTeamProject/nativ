@@ -93,3 +93,9 @@ gem 'will_paginate', '> 3.0.7'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
 gem "fog-aws"
 
+#Rspec
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+  gem "factory_bot_rails"
+end
+
