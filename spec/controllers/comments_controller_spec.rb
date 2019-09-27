@@ -8,7 +8,7 @@ RSpec.describe CommentsController, type: :controller do
       sign_in user
       post :create, params: { place_id: place.id, comment: { message: 'awesome gram' } }
 
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to place_path(place)
       expect(place.comments.length).to eq 1
       expect(place.comments.first.message).to eq "awesome gram"
 
