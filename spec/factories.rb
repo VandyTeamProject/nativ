@@ -10,8 +10,9 @@ FactoryBot.define do
     name { "hello" }
     address { "hello" }
     description { "hello" }
-    association :user
     image { fixture_file_upload(Rails.root.join('spec', 'fixtures', 'Download.png').to_s, 'image/png') }
+    association :user
+    
   end
   
 end
