@@ -1,8 +1,9 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create]
 
   def create
-    @place = Place.find(params[:place_id])
+    @place = Place.find_by_id(params[:place_id])
+    return render_not_found if @place.blank?
     @place.comments.create(comment_params.merge(user: current_user))
     redirect_to place_path(@place)
   end
