@@ -12,49 +12,17 @@
 
 ActiveRecord::Schema.define(version: 2019_09_24_222718) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "cities", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.text "message"
-    t.string "rating"
-    t.integer "place_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "commments", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "photos", force: :cascade do |t|
-    t.string "photo"
-    t.string "caption"
-    t.string "user_id"
-    t.string "place_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["place_id"], name: "index_photos_on_place_id"
-    t.index ["user_id", "place_id"], name: "index_photos_on_user_id_and_place_id"
-  end
 
   create_table "places", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.integer "phone_number"
+    t.bigint "phone_number"
     t.text "description"
+    t.string "images"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
     t.integer "user_id"
     t.string "image"
     t.index ["user_id"], name: "index_places_on_user_id"
