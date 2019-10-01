@@ -44,7 +44,8 @@ RSpec.describe PlacesController, type: :controller do
         place: {
         name: 'Hello!',
         description: 'Hello!',
-        address:'Hello!'
+        address:'Hello!',
+        image: fixture_file_upload("/Download.png", 'image/png')
         }
        }
 
