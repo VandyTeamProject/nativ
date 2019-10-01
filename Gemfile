@@ -100,3 +100,6 @@ group :development, :test do
 end
 # cities (MAxMind database)
 gem 'cities', '~> 0.3.1'
+
+#Geocoder for converting addresses to lat/long coords
+gem 'geocoder'
