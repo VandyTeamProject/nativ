@@ -1,3 +1,9 @@
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -6,22 +12,13 @@
   </ol>
   <div class="carousel-inner" role="listbox">
     <div class="carousel-item active">
-      <%= image_tag 'anna-pelzer-IGfIGP5ONV0-unsplash.jpg', class: 'd-block img-fluid' %>
-      <div class="carousel-caption d-none d-md-block">
-        <h3>Eat more plants</h3>
-      </div>     
+      <%= image_tag 'anna-pelzer-IGfIGP5ONV0-unsplash.jpg', class: 'd-block img-fluid' %>     
     </div>
     <div class="carousel-item">
-      <%= image_tag 'johnny-martinez-lBIFDzYwbDo-unsplash.jpg', class: 'd-block img-fluid' %>
-      <div class="carousel-caption d-none d-md-block">
-        <h3>Find vegan friendly options in Nashville</h3>
-      </div>     
+      <%= image_tag 'johnny-martinez-lBIFDzYwbDo-unsplash.jpg', class: 'd-block img-fluid' %>     
     </div>
     <div class="carousel-item">
       <%= image_tag 'bodie-pyndus-JXqMjodZ0uM-unsplash.jpg', class: 'd-block img-fluid' %>
-      <div class="carousel-caption d-none d-md-block">
-        <h3>Do not see your favorite? Share it!</h3>
-    </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -32,6 +29,28 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+<section class="search-sec">
+    <div class="container">
+        <form action="#" method="post" novalidate="novalidate">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-3 col-sm-12 p-0">
+                            <input type="text" class="form-control search-slt" placeholder="Enter City">
+                        </div>
+                        <div class="col-lg-4 col-md-3 col-sm-12 p-0">
+                            <input type="text" class="form-control search-slt" placeholder="Enter Place">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                            <button type="button" class="btn btn-danger wrn-btn">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
 
  
 <% @places.each do |place| %>
