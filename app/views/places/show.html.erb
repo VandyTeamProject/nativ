@@ -1,6 +1,8 @@
 <div class="booyah-box col-10 offset-1">
   <br />
   <h1><%= @place.name %></h1><br />
+  <%=image_tag @place.image.url%>
+    <br /><br />
   <p><%= @place.address %></p>
   <p><%= @place.phone_number %></p>
   <br/><br/>
@@ -27,7 +29,6 @@
       <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
         <div class="modal-body">
           <%= f.input :message %>
-          <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
         </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
