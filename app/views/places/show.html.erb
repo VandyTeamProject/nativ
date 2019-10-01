@@ -5,6 +5,41 @@
   <p><%= @place.phone_number %></p>
   <br/><br/>
   <p><%= @place.description %></p>
+
+<!-- MAP CODE -->
+
+
+<% if @place.latitude.present? && @place.longitude.present? %>
+
+  <script>
+
+    function initMap() {
+      var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: myLatLng
+      });
+
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        title: 'Hello World!'
+      });
+    }
+  </script>
+
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDdXbsEuXhN9KBvwE746fW_KVnw0QYZsk&callback=initMap">
+  </script>
+
+  <div id="map"></div>
+<% end %>
+<br>
+  <!-- END MAP CODE -->
+
+
+
   <div class="float-right">
     <% if current_user && current_user == @place.user %>
       <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
