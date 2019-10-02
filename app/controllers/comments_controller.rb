@@ -15,6 +15,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:message, :rating)
+    params.require(:comment).permit(:message)
   end
 end

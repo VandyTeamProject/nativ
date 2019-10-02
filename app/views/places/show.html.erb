@@ -93,9 +93,6 @@
 <% @place.comments.each do |comment| %>
   <div class="booyah-box col-12 col-sm-8 offset-2">
     <blockquote>
-      <% if comment.humanized_rating.present? %>
-        <b><%= comment.humanized_rating %></b> -
-      <% end %>
       <%= comment.message %>
       <small><%= comment.user.email %></small>
     </blockquote>
