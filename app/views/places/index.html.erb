@@ -33,6 +33,21 @@
   </a>
 </div>
 
+<br />
+<div class="dd-title col-10 offset-3">
+<h2><strong>Find more loations throughout the U.S.</strong></h2> <br/>
+</div>
+<div class="drop-down col-10 offset-4">
+<input type="hidden" name="country" id="countryId" value="US"/>
+<select name="state" class="states order-alpha" id="stateId">
+    <option value="">Select State</option>
+</select>
+<select name="city" class="cities order-alpha" id="cityId">
+    <option value="">Select City</option>
+</select>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script src="//geodata.solutions/includes/statecity.js"></script>
+</div>
  
 <% @places.each do |place| %>
   <div class="booyah-box col-10 offset-1">
@@ -51,7 +66,7 @@
       <div class="col-12 col-sm-6">
         <blockquote>
         <% if place.comments.last.humanized_rating.present? %>
-        <b><%= place.comments.last.humanized_rating %></b> -
+        <b><%= place.comments.last.humanized_rating %></b> 
         <% end %>
         <%= place.comments.last.message %>
         <!-- <small><%= place.comments.last.user.email %></small>  -->
