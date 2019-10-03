@@ -20,18 +20,7 @@ class PlacesController < ApplicationController
     end
     end
 
-    def search
-      @place = Place.find_by_id(params[:id])
-      @state = State.find_by_id(place_params[:stateId])
-      @city = City.find_by_id(params[:cityId])
-
-      if @place = state || @place = city
-        return @place
-      else
-      flash[:alert] = "Be the first to enter a location!"
-    end
-    end
-  
+    
     def show
       @comment = Comment.new
       @place = Place.find_by_id(params[:id])
