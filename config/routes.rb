@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :places do
     resources :comments, only: :create
     resources :photos, only: :create
-    put :favorite, on: :member
   end
   resources :users, only: :show
+  post "favorite", to: "favorites#favorite"
+  delete "unfavorite", to: "favorites#unfavorite"
 end

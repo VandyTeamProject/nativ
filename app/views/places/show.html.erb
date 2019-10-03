@@ -2,8 +2,7 @@
   <br />
   <h1><%= @place.name %></h1><br />
   <% if current_user %>
-    <%= link_to "favorite", favorite_place_path(@place, type: "favorite"), method: :put %>
-    <%= link_to "unfavorite", favorite_place_path(@place, type: "unfavorite"), method: :put %>
+    <%= render partial: "favorites/button", locals: {place: @place} %>
   <% end %>
   <br />
   <%=image_tag @place.image.url%>
