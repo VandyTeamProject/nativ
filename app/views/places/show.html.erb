@@ -9,9 +9,19 @@
   <p><%= @place.description %></p>
 
 <!-- MAP CODE -->
+<style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    #map {
+      height: 300px;
+    }
+   
+  </style>
 
-
-<% if @place.latitude.present? && @place.longitude.present? %>
+  <% if @place.latitude.present? && @place.longitude.present? %>
 
   <script>
 
@@ -32,20 +42,18 @@
   </script>
 
   <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDdXbsEuXhN9KBvwE746fW_KVnw0QYZsk&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_N7iYzDCAZBWGdF1p9Ka9-ohA6EzR0Z4&callback=initMap">
   </script>
 
-  <div id="map"></div>
+<div id="map"></div>
 <% end %>
-<br>
-  <!-- END MAP CODE -->
 
-
+<br />
 
   <div class="float-right">
     <% if current_user && current_user == @place.user %>
-      <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
-      <%= link_to 'Remove', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to remove this place?'},class: 'btn btn-danger' %>
+    <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
+    <%= link_to 'Delete', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this place?'}, class: 'btn btn-danger' %>
     <% end %>
   </div>
 </div>
