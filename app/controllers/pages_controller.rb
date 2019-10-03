@@ -4,7 +4,8 @@ class PagesController < ApplicationController
           redirect_to(root_path, alert: "Empty field!") and return  
         else    
             @parameter = params[:search].downcase  
-            @results = Store.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+            puts @parameter
+            @results = Place.all.where("lower(address) LIKE :search", search: "%#{@parameter}%")
         end  
     end
 end
