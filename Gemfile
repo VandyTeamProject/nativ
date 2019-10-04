@@ -103,4 +103,3 @@ gem 'cities', '~> 0.3.1'
 
 #Geocoder for converting addresses to lat/long coords
 gem 'geocoder'
-
