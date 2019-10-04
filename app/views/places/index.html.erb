@@ -39,7 +39,10 @@
     <h5><%= link_to place.name, place_path(place) %></h5><br />
     <% if place.image.url.present? %>
       <%=image_tag place.image.url%>
-    <% end %>  
+    <% end %> 
+    <%= div_for place do %>
+      <%= render partial: "favorites/button”, locals: { place: place } %>
+    <% end %>
     <br /><br />
     <p><%= place.address %></p>
     <p><%= place.phone_number %></p><br />
@@ -49,7 +52,7 @@
     <% end %>
     
 
-  <% if place.comments.present? %>
+    <% if place.comments.present? %>
       <div class="col-12 col-sm-6">
         <blockquote>
         <% if place.comments.last.humanized_rating.present? %>
