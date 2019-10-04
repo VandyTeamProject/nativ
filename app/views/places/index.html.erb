@@ -93,7 +93,9 @@
 <% @places.each do |place| %>
   <div class="booyah-box col-10 offset-1">
     <h5><%= link_to place.name, place_path(place) %></h5><br />
-    <%=image_tag place.image.url%>
+    <% if place.image.url.present? %>
+      <%=image_tag place.image.url%>
+    <% end %>
     <br /><br />
     <p><%= place.address %></p>
     <p><%= place.phone_number %></p><br />
