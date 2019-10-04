@@ -2,7 +2,9 @@
   <br />
   <h1><%= @place.name %></h1><br />
   <% if current_user %>
-    <%= render partial: "favorites/button", locals: {place: @place} %>
+    <div id="<%= @place.id %>">
+      <%= render partial: "favorites/button", locals: {place: @place} %>
+    </div>
   <% end %>
   <br />
   <% if @place.image.url.present? %>
