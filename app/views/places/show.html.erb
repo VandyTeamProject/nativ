@@ -106,9 +106,12 @@
 <% @place.reviews.each do |review| %>
   <div class="booyah-box col-12 col-sm-8 offset-2">
     <blockquote>
-      <% if review.humanized_rating.present? %>
-     <b><%= review.humanized_rating %></b> -
+      <% if review.humanized_rating.present? %> 
+                <b><% @review.humanized_rating.to_i.times do  %></b>
+                <span class="glyphicon glyphicon-star"></span>
+                <% end %>
       <% end %>
+          -
           <%= review.message %>
           
     </blockquote>
