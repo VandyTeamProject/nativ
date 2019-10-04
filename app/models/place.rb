@@ -5,6 +5,7 @@ class Place < ApplicationRecord
   has_one :city
   has_many :comments
   has_many :images
+  has_many :reviews
   geocoded_by :address
   after_validation :geocode
 
