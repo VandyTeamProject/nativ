@@ -58,6 +58,11 @@
   </div>
 </div>
 
+<div class="clear"></div>
+<%= simple_form_for @review, url: place_reviews_path(@place) do |f| %>
+  <%= f.input :rating, as: :select, collection: Review::RATINGS %>
+  <%= f.submit "Add a Review", class: 'btn btn-primary' %>
+<% end %>
 
 <!-- Comments Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -84,6 +89,10 @@
 </div>
 
 
+
+
+
+
 <br/>
 <br/>
 <div class="col-10 offset-1">
@@ -107,3 +116,22 @@
   </div>
 <% end %>
 </div>
+
+<h1>Reviews</h1>
+
+<div class="row">
+<% @place.reviews.each do |review| %>
+  <div class="booyah-box col-12 col-sm-8 offset-2">
+    <blockquote>
+      <% if review.humanized_rating.present? %>
+        <b><%= review.humanized_rating %></b> -
+      <% end %>
+      <%= review.message %>
+      <small><%= review.user.email %></small>
+    </blockquote>
+  </div>
+<% end %>
+</div>
+
+
+
