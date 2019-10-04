@@ -4,7 +4,7 @@ class Review < ApplicationRecord
   has_many :comments 
 
   RATINGS = {
-     '1': 'one star',
+     'one star': '1_star',
     'two stars': '2_stars',
     'three stars': '3_stars',
     'four stars': '4_stars',
