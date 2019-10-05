@@ -5,7 +5,7 @@ class PagesController < ApplicationController
         else    
             @parameter = params[:search].downcase  
             puts @parameter
-            
+
             @results = Place.all.where("lower(address) LIKE :search", search: "%#{@parameter}%")
         end  
     end
