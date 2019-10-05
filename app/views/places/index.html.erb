@@ -40,12 +40,12 @@
               <input type="hidden" name="country" id="countryId" value="US"/>
                 <select name="state" class="states order-alpha, form-control search-slt" id="stateId">
                   <option value="">Select State</option>
-                  <%= form_tag(search_page_path, :method => "get") do %>
                 </select>
               </div>
             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
               <select name="city" class="cities order-alpha, form-control search-slt" id="cityId">
                 <option value="">Select City</option>
+                <%= form_tag(search_path, :method => "gets") do %>
               </select>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
@@ -60,7 +60,7 @@
               </select>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-              <%= button_tag "Search", :class => "btn btn-danger wrn-btn",:name => nil%>
+              <%= button_tag "Search", :class => "btn btn-danger wrn-btn", :name => nil%>
             </div>
             <div class="dd-title col-10 offset-3">                  
               <ul id="match_location"></ul>
