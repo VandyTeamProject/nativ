@@ -94,15 +94,30 @@
     
 
   <% if place.comments.present? %>
-      <div class="col-12 col-sm-6">
-        <blockquote>
-        <%= place.comments.last.message %>
-        <!-- <small><%= place.comments.last.user.email %></small>  -->
-        </blockquote>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+        <div class="col-12 col-sm-6">
+          <blockquote>
+          <%= place.comments.last.message %>
+          <!-- <small><%= place.comments.last.user.email %></small>  -->
+          </blockquote>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 <br />
 
 
+<script>
+	$(document).ready(function() {
+		$('#stateId').click(function(){
+			render('j <%= @place %>');
+			)};		
+		)};
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#button1').click(function(){
+            alert('this is a functionality test');
+            )};     
+        )};
+</script>

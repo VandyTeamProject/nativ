@@ -6,7 +6,7 @@ class Place < ApplicationRecord
   has_many :comments
   has_many :images
   geocoded_by :address
-  after_validation :geocode
+  after_validation :geocode, if: :address_changed?
 
   
   validates :name, presence: true
