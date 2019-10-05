@@ -93,6 +93,17 @@
 <% @places.each do |place| %>
   <div class="booyah-box col-10 offset-1">
     <h5><%= link_to place.name, place_path(place) %></h5><br />
+      <b><% place.average_rating.floor.times do  %></b>
+      <i class="fa fa-star"></i>
+      <%end %>
+      <b><% place.average_rating_half_starred.times do %></b>
+      <i class="fa fa-star-half-o"></i>
+      <% end %>
+      <b><% place.average_rating_unstarred.times do %></b>
+      <i class="fa fa-star-o"></i>
+  <% end %>
+  <br/>
+  <br/>
     <%=image_tag place.image.url%>
     <br /><br />
     <p><%= place.address %></p>

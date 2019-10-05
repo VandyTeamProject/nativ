@@ -11,8 +11,8 @@ class Review < ApplicationRecord
     'five stars': 5
   }
 
-  def humanized_rating
-    RATINGS.invert[self.rating]
+  def unstarred
+    5-self.rating.to_i
   end
   
 end
