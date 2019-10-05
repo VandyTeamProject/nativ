@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -32,9 +39,6 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
-<br />
-
 <section class="search-sec">
    <div class="container">
        <form action="#" method="post" novalidate="novalidate">
@@ -43,17 +47,17 @@
                 <h2><strong>Find more loations throughout the U.S.</strong></h2> <br/>
                    <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                           <input type="hidden" name="country" id="countryId" value="US"/>
-                      <select name="state" class="states order-alpha, form-control" id="stateId">
-                          <option value="">Select State</option>
-                      </select>
-                    </div>
-                       <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                        <select name="city" class="cities order-alpha, form-control" id="cityId">
-                          <option value="">Select City</option>
-                      </select>
-                       </div>
-                       <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                        <input type="hidden" name="country" id="countryId" value="US"/>
+                          <select name="state" class="states order-alpha, form-control" id="stateId">
+                            <option value="">Select State</option>
+                          </select>
+                          </div>
+                          <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                            <select name="city" class="cities order-alpha, form-control" id="cityId">
+                              <option value="">Select City</option>
+                            </select>
+                           </div>
+                           <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                            <select class="form-control search-slt" id="exampleFormControlSelect1">
                                 <option>Food Option Placeholder</option>
                                 <option>Vegan</option>
@@ -65,19 +69,14 @@
                             </select>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <button type="button" class="btn btn-danger wrn-btn">Search</button>
+                            <button  id="button1" type="button" class="btn btn-danger wrn-btn">Search</button>
+                            <button  id="button2" type="button" class="btn btn-danger wrn-btn">Search</button>
                         </div>
                              <div class="dd-title col-10 offset-3">
                       <ul id="match_location">
                       </ul>
                       </div>
                       <div class="drop-down col-10 offset-4">
-                      
-                      
-                      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
-                      <script src="//geodata.solutions/includes/statecity.js"></script>
-                      <script src="/jQuery/dist/jquery.js"></script>
-                      <script src="/javascripts/main.js"></script>
                       </div>
                        </div>
                    </div>
@@ -87,10 +86,6 @@
    </div>
 </section>
 
-
-
-
- 
 <% @places.each do |place| %>
   <div class="booyah-box col-10 offset-1">
     <h5><%= link_to place.name, place_path(place) %></h5><br />
@@ -100,7 +95,6 @@
     <p><%= place.phone_number %></p><br />
     <p><%= place.description %></p><br   
     <% if place.user.present? %>
-      <small><%= place.user.email %></small>
     <% end %>
     
 
@@ -118,5 +112,15 @@
   </div>
 <% end %>
 <br />
+<script>
+  $(document).ready(function() {
+      $('#stateId').click(function() { 
+        render('j <%= @place %>');
+    });
+   });
+</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script src="//geodata.solutions/includes/statecity.js"></script>
 
-
+</body>
+</html>
