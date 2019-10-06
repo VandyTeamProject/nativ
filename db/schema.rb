@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_03_215125) do
+ActiveRecord::Schema.define(version: 2019_10_02_223839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,16 @@ ActiveRecord::Schema.define(version: 2019_10_03_215125) do
     t.index ["saveable_type", "saveable_id"], name: "index_saves_on_saveable_type_and_saveable_id"
     t.index ["saver_id", "saver_type", "save_scope"], name: "index_saves_on_saver_id_and_saver_type_and_save_scope"
     t.index ["saver_type", "saver_id"], name: "index_saves_on_saver_type_and_saver_id"
+    
+  create_table "reviews", force: :cascade do |t|
+    t.text "message"
+    t.integer "rating"
+    t.integer "user_id"
+    t.integer "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_reviews_on_place_id"
+    t.index ["user_id", "place_id"], name: "index_reviews_on_user_id_and_place_id"
   end
 
   create_table "users", force: :cascade do |t|

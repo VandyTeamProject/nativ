@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :comments, only: :create
     resources :photos, only: :create
     resources :search, only: :create
+    resources :reviews, only: :create
   end
   resources :users, only: :show
   post "favorite", to: "favorites#favorite"

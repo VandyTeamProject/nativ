@@ -22,6 +22,7 @@ class PlacesController < ApplicationController
   
     def show
       @comment = Comment.new
+      @review  = Review.new
       @place = Place.find_by_id(params[:id])
       return render_not_found if @place.blank?
 
