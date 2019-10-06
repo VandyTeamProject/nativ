@@ -5,7 +5,7 @@
   <br />
   <h1><%= @place.name %></h1><br />
   <% if current_user %>
-    <div id="<%= @place.id %>">
+    <div id="mydiv"<%= @place.id %>">
       <%= render partial: "favorites/button", locals: {place: @place} %>
     </div>
   <% end %>
