@@ -1,1 +1,1 @@
-console.log($('#mydiv<%= "@place" %>').html('<%= j render partial: "button", locals: {place: @place} %>'));
+$('div#<%= @place.id %>').html('<%= j render partial: "button", locals: {place: @place} %>');
