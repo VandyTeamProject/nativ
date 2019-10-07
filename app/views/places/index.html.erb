@@ -79,19 +79,19 @@
   </div>
 </section>
 
- 
+<div class="container mt-5">
 <% @places.each do |place| %>
-  <div class="booyah-box col-10 offset-1">
+<div class="card-deck">
+  <div class="card" style="max-width: 18rem;">
+  <div class="card-body">
     <h5><%= link_to place.name, place_path(place) %></h5><br />
-    <%=image_tag place.image.url%>
+    <%=image_tag place.image.url, class: "card-img-top" %>
     <br /><br />
     <p><%= place.address %></p>
     <p><%= place.phone_number %></p><br />
     <p><%= place.description %></p><br />
-    <% if place.user.present? %>
-      <small><%= place.user.email %></small>
-    <% end %>
-    
+    <%= link_to 'More', place_path(place), class: 'btn btn-primary' %>
+  </div>
 
   <% if place.comments.present? %>
         <div class="col-12 col-sm-6">
