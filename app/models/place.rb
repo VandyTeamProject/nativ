@@ -5,6 +5,8 @@ class Place < ApplicationRecord
   has_one :city
   has_many :comments
   has_many :images
+  has_many :favorites, dependent: :destroy
+  has_many :users, through: :favorites
   has_many :reviews
   geocoded_by :address
   after_validation :geocode
@@ -15,6 +17,7 @@ class Place < ApplicationRecord
   validates :description, presence: true
   validates :image, presence: true
 
+ 
   def average_rating
     return 0 if self.reviews.count < 1
 

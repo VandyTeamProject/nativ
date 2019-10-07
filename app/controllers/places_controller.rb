@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :favorite]
   
     def index
       @places = Place.all
@@ -11,13 +11,13 @@ class PlacesController < ApplicationController
   
     def create
       @place = current_user.places.create(place_params)
-    if @place.valid?
-        flash[:success] = "Your place has been added!"
-        redirect_to root_path
-    else
-        flash[:alert] = "Your new place couldn't be created!  Please check the form."
-        render :new, status: :unprocessable_entity
-    end
+      if @place.valid?
+          flash[:success] = "Your place has been added!"
+          redirect_to root_path
+      else
+          flash[:alert] = "Your new place couldn't be created!  Please check the form."
+          render :new, status: :unprocessable_entity
+      end
     end
   
     def show
@@ -25,6 +25,7 @@ class PlacesController < ApplicationController
       @review  = Review.new
       @place = Place.find_by_id(params[:id])
       return render_not_found if @place.blank?
+
     end
   
     def edit
@@ -66,6 +67,19 @@ class PlacesController < ApplicationController
       @place.destroy
       redirect_to root_path
     end
+
+    def favorite
+      type = params[:type]
+      if type == "favorite"
+        current_user.favorites << @place 
+        redirect_to places_path, notice: "You favorited #{@place.name}"
+      elsif type == "unfavorite"
+        current_user.favorites.delete(@place)
+        redirect_to places_path, notice: "Unfavorited #{@place.name}"
+      else
+        redirect_to places_path, notice: "Nothing happend"
+      end
+    end
   
     private
   
@@ -80,4 +94,5 @@ class PlacesController < ApplicationController
     def render_forbidden
     render plain: 'Forbidden', status: :forbidden
     end
+
   end
