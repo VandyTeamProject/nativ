@@ -45,7 +45,7 @@
             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
               <select name="city" class="cities order-alpha, form-control search-slt" id="cityId">
                 <option value="">Select City</option>
-                <%= form_tag(search_path, :method => "gets") do %>
+                <%= form_tag(search_path, :method => "get") do %>
               </select>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
@@ -85,18 +85,18 @@
   <div class="card" style="max-width: 18rem;">
   <div class="card-body">
     <h5><%= link_to place.name, place_path(place) %></h5><br />
-    <%=image_tag place.image.url, class: "card-img-top" %>
-    <% if current_user %>
-      <%= render partial: "index_favorites/button", locals: {place: place} %>
-    <% end %>
     <% if place.image.url.present? %>
-      <%=image_tag place.image.url%>
+      <%=image_tag place.image.url, class: "card-img-top" %>
     <% end %>
     <br /><br />
     <p><%= place.address %></p>
     <p><%= place.phone_number %></p><br />
     <p><%= place.description %></p><br />
     <%= link_to 'More', place_path(place), class: 'btn btn-primary' %>
+    <br /><br />
+    <% if current_user %>
+      <%= render partial: "index_favorites/button", locals: {place: place} %>
+    <% end %>
   </div>
 
   <% if place.comments.present? %>

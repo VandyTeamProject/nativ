@@ -6,6 +6,7 @@ class CreatePlaces < ActiveRecord::Migration[5.2]
       t.integer :phone_number
       t.text :description
       t.string :images
+      t.boolean :category_id
 
       t.timestamps
     end

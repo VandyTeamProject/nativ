@@ -6,6 +6,7 @@ class Place < ApplicationRecord
   has_many :comments
   has_many :images
   has_many :favorites, dependent: :destroy
+  has_many :categories
   has_many :users, through: :favorites
   has_many :reviews
   geocoded_by :address
