@@ -17,7 +17,7 @@ class Place < ApplicationRecord
   validates :address, presence: true
   validates :description, presence: true
   validates :image, presence: true
-  validates :city, presence: true
+  validates :phone_number, presence: true
 
 
  

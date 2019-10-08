@@ -15,11 +15,6 @@ ActiveRecord::Schema.define(version: 2019_10_07_234909) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "categories", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -59,6 +54,7 @@ ActiveRecord::Schema.define(version: 2019_10_07_234909) do
     t.bigint "phone_number"
     t.text "description"
     t.string "images"
+    t.boolean "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -68,7 +64,6 @@ ActiveRecord::Schema.define(version: 2019_10_07_234909) do
     t.string "city"
     t.string "state"
     t.string "zip"
-    t.string "category_id"
     t.index ["user_id"], name: "index_places_on_user_id"
   end
 
