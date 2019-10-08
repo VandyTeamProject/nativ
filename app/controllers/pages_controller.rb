@@ -1,12 +1,12 @@
 class PagesController < ApplicationController
     def search  
-        if params[:search].blank?  
+        if params[:city].blank?  
           redirect_to(root_path, alert: "Empty field!") and return  
         else    
-            @parameter = params[:search].downcase  
+            @parameter = params[:city].downcase  
             puts @parameter
 
-            @results = Place.all.where("lower(address) LIKE :search", search: "%#{@parameter}%")
+            @results = Place.all.where("lower(address) LIKE :city", city: "%#{@parameter}%")
         end  
     end
 end
