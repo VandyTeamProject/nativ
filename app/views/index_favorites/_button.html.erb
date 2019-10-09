@@ -1,7 +1,0 @@
-<div id="<%= place.id %>">
-    <% if current_user.favorite?(place) %>
-        <%= button_to "Unfavorite", unfavorite_path(place_id: place.id), remote: true, method: :delete %>
-    <% else %>
-        <%= button_to "Favorite", favorite_path(place_id: place.id), remote: true %>
-    <% end %>
-</div>

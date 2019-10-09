@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :favorite]
+    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   
     def index
       @places = Place.all
@@ -68,18 +68,18 @@ class PlacesController < ApplicationController
       redirect_to root_path
     end
 
-    def favorite
-      type = params[:type]
-      if type == "favorite"
-        current_user.favorites << @place 
-        redirect_to places_path, notice: "You favorited #{@place.name}"
-      elsif type == "unfavorite"
-        current_user.favorites.delete(@place)
-        redirect_to places_path, notice: "Unfavorited #{@place.name}"
-      else
-        redirect_to places_path, notice: "Nothing happend"
-      end
-    end
+    #def favorite
+    #  type = params[:type]
+    #  if type == "favorite"
+    #    current_user.favorites << @place 
+    #    redirect_to places_path, notice: "You favorited #{@place.name}"
+    #  elsif type == "unfavorite"
+    #    current_user.favorites.delete(@place)
+    #    redirect_to places_path, notice: "Unfavorited #{@place.name}"
+    #  else
+    #    redirect_to places_path, notice: "Nothing happend"
+    #  end
+    #end
   
     private
   
