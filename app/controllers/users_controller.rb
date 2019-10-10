@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     if @user.blank?
     render plain: 'Not Found :(', status: :not_found
     end
-    #current_user.places
+    current_user.places
   end
 
 end

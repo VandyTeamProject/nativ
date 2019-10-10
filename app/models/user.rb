@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
   has_many :places
   has_many :comments
-  #has_many :favorites, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   #has_many :places, through: :favorites
 
   has_many :reviews 
@@ -18,17 +18,17 @@ class User < ApplicationRecord
     end
   end   
 
-  #def favorite!(place)
-    #self.favorites.create!(place_id: place.id)
-  #end
+  def favorite!(place)
+    self.favorites.create!(place_id: place.id)
+  end
 
-  #def unfavorite!(place)
-    #favorite = self.favorites.find_by(place_id: place.id)
-    #favorite.destroy!
-  #end
+  def unfavorite!(place)
+    favorite = self.favorites.find_by(place_id: place.id)
+    favorite.destroy!
+  end
 
-  #def favorite?(place)
-    #self.favorites.find_by(place_id: place.id)
-  #end
+  def favorite?(place)
+    self.favorites.find_by(place_id: place.id)
+  end
 
 end

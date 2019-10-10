@@ -2,12 +2,12 @@ class Place < ApplicationRecord
   mount_uploader :image, ImageUploader
   
   belongs_to :user
-  #has_one :city
+  has_one :city
   has_many :comments
   has_many :images
-  #has_many :favorites, dependent: :destroy
-  #has_many :categories
-  #has_many :users, through: :favorites
+  has_many :favorites, dependent: :destroy
+  has_many :categories
+  has_many :users, through: :favorites
   has_many :reviews
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
@@ -17,7 +17,7 @@ class Place < ApplicationRecord
   validates :address, presence: true
   validates :description, presence: true
   validates :image, presence: true
-  #validates :city, presence: true
+  validates :city, presence: true
 
 
  
