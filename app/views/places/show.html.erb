@@ -16,7 +16,14 @@
     <span class="fas fa-phone"></span>&nbsp;
   <%= @place.phone_number %>
   </div><br />
-  <br/><br/>
+  <div class="address">
+    <span class="fas fa-link"></span>&nbsp;
+  <a href="<%= @place.website %>"> <%= @place.website %></a>
+  </div><br />
+  <div class="address">
+    <span class="fas fa-clock"></span>&nbsp;
+      <%= @place.hours %>
+    </div><br />
   <p><%= @place.description %></p>
   
   <b><% @place.average_rating.floor.times do  %></b>

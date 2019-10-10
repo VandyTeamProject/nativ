@@ -115,6 +115,15 @@
     <span class="fas fa-phone"></span>&nbsp;
       <%= place.phone_number %>
     </div><br />
+    <div class="address">
+    <span class="fas fa-clock"></span>&nbsp;
+      <%= place.hours %>
+    </div><br />
+    <div class="address">
+    <span class="fas fa-link"></span>&nbsp;
+    <a href="<%= place.website %>"> <%= place.website %></a>
+    </div><br />
+    <br />
     <p><%= place.description %></p><br />
     <br /><br />
     <%# <% if current_user %>

@@ -84,7 +84,7 @@ class PlacesController < ApplicationController
     private
   
     def place_params
-      params.require(:place).permit(:name, :description, :address, :phone_number, :image)
+      params.require(:place).permit(:name, :description, :address, :phone_number, :image, :website, :hours)
     end
 
     def render_not_found

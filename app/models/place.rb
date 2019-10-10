@@ -6,7 +6,7 @@ class Place < ApplicationRecord
   has_many :comments
   has_many :images
   #has_many :favorites, dependent: :destroy
-  #has_many :categories
+  has_many :categories
   #has_many :users, through: :favorites
   has_many :reviews
   geocoded_by :address
@@ -17,6 +17,9 @@ class Place < ApplicationRecord
   validates :address, presence: true
   validates :description, presence: true
   validates :image, presence: true
+  validates :phone_number, presence: true
+  validates :website, presence: true
+  validates :hours, presence: true
   #validates :city, presence: true
 
 
