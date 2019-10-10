@@ -1,19 +1,24 @@
-<div class="booyah-box col-10 offset-1">
-  <br />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+<div class="booyah-box col-10 offset-1"><br />
   <h1><%= @place.name %></h1><br />
-  <% if current_user %>
-      <%= render partial: "favorites/button", locals: {place: @place} %>
-  <% end %>
-  <br />
+  <%# <% if current_user %>
+      <%# <%= render partial: "favorites/button", locals: {place: @place} %>
+  <%# <% end %>
   <% if @place.image.url.present? %>
     <%=image_tag @place.image.url, class: "img-thumbnail"%>
-  <% end %>
-    <br /><br />
-  <p><%= @place.address %></p>
-  <p><%= @place.phone_number %></p>
+  <% end %> <br /><br />
+  <div class="address">
+    <span class="fas fa-map-marker-alt"></span> &nbsp;
+  <%= @place.address %>
+  </div><br />
+  <div class="address">
+    <span class="fas fa-phone"></span>&nbsp;
+  <%= @place.phone_number %>
+  </div><br />
   <br/><br/>
   <p><%= @place.description %></p>
-
+  
   <b><% @place.average_rating.floor.times do  %></b>
     <i class="fa fa-star"></i>
   <%end %>
@@ -22,7 +27,7 @@
   <% end %>
   <b><% @place.average_rating_unstarred.times do %></b>
     <i class="fa fa-star-o"></i>
-  <% end %>
+  <% end %><br /><br />
 
 <!-- MAP CODE -->
 <style>
