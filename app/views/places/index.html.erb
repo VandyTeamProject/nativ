@@ -1,11 +1,12 @@
-<!DOCTYPE html>	
-<html>
-
-<head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<!DOCTYPE html>	
+<html>
+
+<head>
 <script>
  $(document).ready(function() {
       $('#stateId').click(function(data) { 
@@ -97,27 +98,40 @@
   </div>
 </section>
 
-<div class="container mt-5">
+
 <% @places.each do |place| %>
-<div class="card-deck">
-  <div class="card" style="max-width: 18rem;">
-  <div class="card-body">
-    <h5><%= link_to place.name, place_path(place) %></h5><br />
+<div class="booyah-box col-10 offset-1">
+    <h1><%= link_to place.name, place_path(place) %></h1><br />
     <% if place.image.url.present? %>
-      <%=image_tag place.image.url, class: "card-img-top" %>
+      <%=image_tag place.image.url, class: "img-thumbnail"%>
     <% end %>
     <br /><br />
-    <p><%= place.address %></p>
-    <p><%= place.phone_number %></p><br />
+    <%= link_to 'More', place_path(place), class: 'btn btn-primary' %><br /><br />
+    <div class="address">
+    <span class="fas fa-map-marker-alt"></span> &nbsp;
+      <%= place.address %>
+    </div><br/>
+    <div class="address">
+    <span class="fas fa-phone"></span>&nbsp;
+      <%= place.phone_number %>
+    </div><br />
+    <div class="address">
+    <span class="fas fa-clock"></span>&nbsp;
+      <%= place.hours %>
+    </div><br />
+    <div class="address">
+    <span class="fas fa-link"></span>&nbsp;
+    <a href="<%= place.website %>"> <%= place.website %></a>
+    </div><br />
+    <br />
     <p><%= place.description %></p><br />
-    <%= link_to 'More', place_path(place), class: 'btn btn-primary' %>
     <br /><br />
-    <% if current_user %>
-      <%= render partial: "index_favorites/button", locals: {place: place} %>
-    <% end %>
-  </div>
+    <%# <% if current_user %>
+      <%# <%= render partial: "index_favorites/button", locals: {place: place} %>
+    <%# <% end %>
 
   <% if place.comments.present? %>
+  <h2> Reviews & Ratings </h2><br/>
         <div class="col-12 col-sm-6">
           <blockquote>
           <%= place.comments.last.message %>

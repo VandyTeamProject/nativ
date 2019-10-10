@@ -1,19 +1,31 @@
-<div class="booyah-box col-10 offset-1">
-  <br />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+<div class="booyah-box col-10 offset-1"><br />
   <h1><%= @place.name %></h1><br />
-  <% if current_user %>
-      <%= render partial: "favorites/button", locals: {place: @place} %>
-  <% end %>
-  <br />
+  <%# <% if current_user %>
+      <%# <%= render partial: "favorites/button", locals: {place: @place} %>
+  <%# <% end %>
   <% if @place.image.url.present? %>
     <%=image_tag @place.image.url, class: "img-thumbnail"%>
-  <% end %>
-    <br /><br />
-  <p><%= @place.address %></p>
-  <p><%= @place.phone_number %></p>
-  <br/><br/>
+  <% end %> <br /><br />
+  <div class="address">
+    <span class="fas fa-map-marker-alt"></span> &nbsp;
+  <%= @place.address %>
+  </div><br />
+  <div class="address">
+    <span class="fas fa-phone"></span>&nbsp;
+  <%= @place.phone_number %>
+  </div><br />
+  <div class="address">
+    <span class="fas fa-link"></span>&nbsp;
+  <a href="<%= @place.website %>"> <%= @place.website %></a>
+  </div><br />
+  <div class="address">
+    <span class="fas fa-clock"></span>&nbsp;
+      <%= @place.hours %>
+    </div><br />
   <p><%= @place.description %></p>
-
+  
   <b><% @place.average_rating.floor.times do  %></b>
     <i class="fa fa-star"></i>
   <%end %>
@@ -22,7 +34,7 @@
   <% end %>
   <b><% @place.average_rating_unstarred.times do %></b>
     <i class="fa fa-star-o"></i>
-  <% end %>
+  <% end %><br /><br />
 
 <!-- MAP CODE -->
 <style>
@@ -57,8 +69,8 @@
     }
   </script>
 
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_N7iYzDCAZBWGdF1p9Ka9-ohA6EzR0Z4&callback=initMap">
+   <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvOsQTnJ8_OAx6sYCr1FSo9M7SyS76ETU&callback=initMap">
   </script>
 
 <div id="map"></div>
@@ -102,6 +114,8 @@
 </div>
 <br/>
 <br/>
+
+<div class="clear"></div>
 
 <div class="col-10 offset-1">
 <h1 class="float-left">Reviews</h1>
@@ -158,6 +172,7 @@
 <br/>
 <br/>
 
+<div class="clear"></div>
 
 <div class="col-10 offset-1">
 <h1 class="float-left">Comments</h1>
@@ -166,8 +181,6 @@
   Add a comment
 </button>
 </div>
-
-
 <div class="clear"></div>
 <div class="row">
 <% @place.comments.each do |comment| %>
@@ -179,14 +192,3 @@
   </div>
 <% end %>
 </div>
-
-
-
-
-
-
-
-
-
-
-
