@@ -18,7 +18,7 @@
 <h1 class="text-center">My Favorites</h1>
 <br /><br />
 <div class="row">
-  <% @user.favorites.each do |favorite| %>
+  <% @user.favorite.each do |favorite| %>
     <div class="booyah-box col-10 offset-1">
       <h5><%= link_to favorite.place.name, place_path(favorite.place) %></h5><br />  
     </div>
