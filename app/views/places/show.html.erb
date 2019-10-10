@@ -62,8 +62,8 @@
     }
   </script>
 
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_N7iYzDCAZBWGdF1p9Ka9-ohA6EzR0Z4&callback=initMap">
+   <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvOsQTnJ8_OAx6sYCr1FSo9M7SyS76ETU&callback=initMap">
   </script>
 
 <div id="map"></div>
@@ -107,6 +107,8 @@
 </div>
 <br/>
 <br/>
+
+<div class="clear"></div>
 
 <div class="col-10 offset-1">
 <h1 class="float-left">Reviews</h1>
@@ -163,6 +165,7 @@
 <br/>
 <br/>
 
+<div class="clear"></div>
 
 <div class="col-10 offset-1">
 <h1 class="float-left">Comments</h1>
@@ -171,8 +174,6 @@
   Add a comment
 </button>
 </div>
-
-
 <div class="clear"></div>
 <div class="row">
 <% @place.comments.each do |comment| %>
@@ -184,14 +185,3 @@
   </div>
 <% end %>
 </div>
-
-
-
-
-
-
-
-
-
-
-
