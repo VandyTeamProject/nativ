@@ -85,10 +85,7 @@
               <ul id="match_location"></ul>
             </div>
             <div class="drop-down col-10 offset-4">
-              <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
-              <script src="//geodata.solutions/includes/statecity.js"></script>
-              <script src="/jQuery/dist/jquery.js"></script>
-              <script src="/javascripts/main.js"></script>
+              <!-- Removed due to jQuery download links! -->
             </div>
             <%end%>
           </div>
@@ -126,9 +123,11 @@
     <br />
     <p><%= place.description %></p><br />
     <br /><br />
-    <%# <% if current_user %>
-      <%# <%= render partial: "index_favorites/button", locals: {place: place} %>
-    <%# <% end %>
+      <% if current_user %>
+        <div id=<%= place.id %>>
+          <%= render partial: "favorites/button", locals: {place: place} %>
+        </div>
+      <% end %>
 
   <% if place.comments.present? %>
   <h2> Reviews & Ratings </h2><br/>

@@ -2,9 +2,11 @@
 
 <div class="booyah-box col-10 offset-1"><br />
   <h1><%= @place.name %></h1><br />
-  <%# <% if current_user %>
-      <%# <%= render partial: "favorites/button", locals: {place: @place} %>
-  <%# <% end %>
+    <% if current_user %>
+      <div id="<%= @place.id %>" class="favorite-button">
+        <%= render partial: "favorites/button", locals: {place: @place} %>
+      </div>
+    <% end %>
   <% if @place.image.url.present? %>
     <%=image_tag @place.image.url, class: "img-thumbnail"%>
   <% end %> <br /><br />
