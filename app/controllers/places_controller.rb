@@ -68,7 +68,7 @@ class PlacesController < ApplicationController
       redirect_to root_path
     end
 
-    #def favorite
+    # def favorite
     #  type = params[:type]
     #  if type == "favorite"
     #    current_user.favorites << @place 
@@ -79,7 +79,7 @@ class PlacesController < ApplicationController
     #  else
     #    redirect_to places_path, notice: "Nothing happend"
     #  end
-    #end
+    # end
   
     private
   
