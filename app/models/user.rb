@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :places
   has_many :comments
   has_many :favorites, dependent: :destroy
-  has_many :places, through: :favorites
 
   has_many :reviews 
   
