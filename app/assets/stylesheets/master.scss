@@ -83,8 +83,9 @@ blockquote p {
 }
 
 .img-thumbnail {
-  max-width: 200px; 
-  height: 200px;
+  width: 100%; 
+  max-height: 600px;
+  object-fit: cover;
 }
 
 @-ms-viewport{
@@ -107,7 +108,8 @@ h1, h2, h3, h4, h5, h6 {
 
 img.photo-place {
   max-width: 250px;
-  height: auto;
+  max-height: 300px;
+  object-fit: cover;
 }
 .btn-primary {
   font-family: 'Montserrat', sans-serif;
@@ -228,4 +230,15 @@ img.photo-place {
     .search-sec{
         background: #1A4668;
     }
+}
+
+.card-body {
+  padding: 0.5rem;
+  
+}
+
+.card-img-top {
+  max-width: 100%;
+  max-height: 150px;
+  object-fit: cover;
 }

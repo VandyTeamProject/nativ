@@ -1,6 +1,3 @@
-
-
-
 <div class="booyah-box col-10 offset-1">
   <br />
   <h1><%= @place.name %></h1><br />
@@ -9,7 +6,7 @@
   <% end %>
   <br />
   <% if @place.image.url.present? %>
-    <%=image_tag @place.image.url%>
+    <%=image_tag @place.image.url, class: "img-thumbnail"%>
   <% end %>
     <br /><br />
   <p><%= @place.address %></p>

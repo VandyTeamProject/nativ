@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_03_215125) do
+ActiveRecord::Schema.define(version: 2019_10_07_234909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -29,13 +34,6 @@ ActiveRecord::Schema.define(version: 2019_10_03_215125) do
     t.datetime "updated_at", null: false
     t.index ["place_id"], name: "index_comments_on_place_id"
     t.index ["user_id", "place_id"], name: "index_comments_on_user_id_and_place_id"
-  end
-
-  create_table "favorite_places", force: :cascade do |t|
-    t.integer "place_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -67,6 +65,10 @@ ActiveRecord::Schema.define(version: 2019_10_03_215125) do
     t.string "image"
     t.float "latitude"
     t.float "longitude"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "category_id"
     t.index ["user_id"], name: "index_places_on_user_id"
   end
 
@@ -81,20 +83,10 @@ ActiveRecord::Schema.define(version: 2019_10_03_215125) do
     t.index ["user_id", "place_id"], name: "index_reviews_on_user_id_and_place_id"
   end
 
-  create_table "saves", force: :cascade do |t|
-    t.string "saveable_type"
-    t.bigint "saveable_id"
-    t.string "saver_type"
-    t.bigint "saver_id"
-    t.boolean "save_flag"
-    t.string "save_scope"
-    t.integer "save_weight"
+  create_table "states", force: :cascade do |t|
+    t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["saveable_id", "saveable_type", "save_scope"], name: "index_saves_on_saveable_id_and_saveable_type_and_save_scope"
-    t.index ["saveable_type", "saveable_id"], name: "index_saves_on_saveable_type_and_saveable_id"
-    t.index ["saver_id", "saver_type", "save_scope"], name: "index_saves_on_saver_id_and_saver_type_and_save_scope"
-    t.index ["saver_type", "saver_id"], name: "index_saves_on_saver_type_and_saver_id"
   end
 
   create_table "users", force: :cascade do |t|

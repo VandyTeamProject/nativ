@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  get '/search' => 'pages#search', :as => 'search_page'
+  get "/search", :to => 'pages#search', :as => :search
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'places#index'
 
