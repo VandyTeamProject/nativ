@@ -85,5 +85,5 @@ test:
 production:
   <<: *default
   database: nativ_production
-  username: nativ
-  password: <%= ENV['NATIV_DATABASE_PASSWORD'] %>
+  # username: nativ
+  # password: <%= ENV['NATIV_DATABASE_PASSWORD'] %>
