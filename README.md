@@ -1,4 +1,4 @@
-# Table
+# Nativ
 A clone of Yelp's web platform for restaurant search. Built in Ruby on Rails. The goal is to add and find "local-only" options avilable in cities across the nation. This is working towards being a crowd-sourced platform.
 
 ### Live link
