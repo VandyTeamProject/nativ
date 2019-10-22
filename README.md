@@ -1,6 +1,20 @@
 # Nativ
 A clone of Yelp's web platform for restaurant search. Built in Ruby on Rails. The goal is to add and find "local-only" options avilable in cities across the nation. This is working towards being a crowd-sourced platform.
 
+Keep a record of all of your favorite places you like to "nom nom nom".
+
+Here's a Yelp Clone that features user authentication, Google map API integration, dashboards, automated emails, user comments, address geolocation, validations, and homepage sliders all wrapped in a mobile first designed web application.
+
+## Features 
+
+* Google Maps API
+* User authentication
+* User comments & ratings
+* Image uploading hosted on AWS
+* User dashboards with statistics on contributions
+* Seach by State > City
+* Favorite/Unfavorite places
+
 ### Live link
 
 https://nativ-project.herokuapp.com/ (running on Heroku)
