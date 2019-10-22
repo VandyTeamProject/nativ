@@ -2,6 +2,10 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script src="//geodata.solutions/includes/statecity.js"></script>
+<script src="/jQuery/dist/jquery.js"></script>
+<script src="/javascripts/main.js"></script>
 
 <!DOCTYPE html>	
 <html>
@@ -74,8 +78,6 @@
                 <option>Indian</option>
                 <option>Thai</option>
                 <option>American</option>
-                <option>Example one</option>
-                <option>Example one</option>
               </select>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
@@ -122,7 +124,7 @@
     </div><br />
     <br />
     <p><%= place.description %></p><br />
-    <br /><br />
+    <br />
       <% if current_user %>
         <div id=<%= place.id %>>
           <%= render partial: "favorites/button", locals: {place: place} %>
