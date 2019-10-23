@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: :show
   post "favorite", to: "favorites#favorite"
-  delete "unfavorite", to: "favorites#unfavorite"
+  post "unfavorite", to: "favorites#unfavorite"
 end

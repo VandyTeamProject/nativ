@@ -68,23 +68,24 @@ class PlacesController < ApplicationController
       redirect_to root_path
     end
 
-    def favorite
-      type = params[:type]
-      if type == "favorite"
-       current_user.favorites << @place 
-       redirect_to places_path, notice: "You favorited #{@place.name}"
-      elsif type == "unfavorite"
-       current_user.favorites.delete(@place)
-       redirect_to places_path, notice: "Unfavorited #{@place.name}"
-      else
-        redirect_to places_path, notice: "Nothing happend"
-      end
-    end
+    # def favorite
+    #  type = params[:type]
+    #  if type == "favorite"
+    #    current_user.favorites << @place 
+    #    redirect_to places_path, notice: "You favorited #{@place.name}"
+    #  elsif type == "unfavorite"
+    #    current_user.favorites.delete(@place)
+    #    redirect_to places_path, notice: "Unfavorited #{@place.name}"
+    #  else
+    #    redirect_to places_path, notice: "Nothing happend"
+    #  end
+    # end
+
   
     private
   
     def place_params
-      params.require(:place).permit(:name, :description, :address, :phone_number, :image)
+      params.require(:place).permit(:name, :description, :address, :phone_number, :image, :website, :hours)
     end
 
     def render_not_found

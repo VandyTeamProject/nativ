@@ -11,7 +11,7 @@ class FavoritesController < ApplicationController
 
     def unfavorite
        @user = current_user
-       @place = @user.favorites.find(params[:place_id])
+       @place = @user.favorites.find_by(place_id: params[:place_id])
        @user.unfavorite!(@place)
     end
 end
