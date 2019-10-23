@@ -85,6 +85,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'carrierwave-aws'
 gem "fog-aws"
+gem 'rake','12.3.3'
 
 # font awesome gem
 gem 'font-awesome-rails'
