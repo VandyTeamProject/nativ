@@ -24,10 +24,19 @@ https://nativ-project.herokuapp.com/ (running on Heroku)
 ### Code walkthrough
 The frontend of this application is running on Rails and Bootstrap. The backbone of the app is on the ```index.html``` folder -- The bread and butter of the user experience.
 
-### How to use the app
+### Using the app
 The app starts the user off with a choice of what state and city users are looking to dine at. After choosing a city, the user is given a choice of "local-only" restaurant options, with additional information associated with each place.
 
-Under development: Adding categories and options. Once local places appear on page rom search results, the user can select from a number of filters to find better matches.
+## Create and find
+1. Sign up and log in with a personal account.
+2. Click **+New Place**
+3. Complete the form to add a new place.
+4. Click **My Profile** to view places you've added.
+
+## Search and Engage
+
+1. Search by State > City to view places added to specific locations.
+2. Click a place and add a review or comment.
 
 ### Core technologies
 - Rails v4.2.4
