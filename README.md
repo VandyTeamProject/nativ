@@ -1,24 +1,6 @@
-# README
+![](Images/Rspec.PNG)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Within Rails 5.2.3 and Ruby 2.5.3, Rspec tests can by run using the command    bundle exec rspec 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Here, I wrote 29 passing tests for the users, places, comments, and reviews controllers. As our application at this point was breaking, these tests help get our code and app to a functioning state.  
